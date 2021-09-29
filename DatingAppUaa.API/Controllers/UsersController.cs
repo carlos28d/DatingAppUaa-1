@@ -1,18 +1,14 @@
 ﻿using DatingApp.API.Entities;
 using DatingAppUaa.API.Data;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DatingAppUaa.API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
 
@@ -21,12 +17,14 @@ namespace DatingAppUaa.API.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+        public async Task<ActionResult<List<AppUser>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         [Route("{id}")]
         public async Task<ActionResult<AppUser>> GetUser(int id)
