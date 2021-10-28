@@ -1,5 +1,4 @@
-﻿using DatingAppUaa.API.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace DatingApp.API.Entities

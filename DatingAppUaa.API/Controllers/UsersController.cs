@@ -2,13 +2,13 @@
 using DatingApp.API.Entities;
 using DatingAppUaa.API.DTOs;
 using DatingAppUaa.API.Extensions;
+using DatingAppUaa.API.Helpers;
 using DatingAppUaa.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace DatingAppUaa.API.Controllers
@@ -29,9 +29,17 @@ namespace DatingAppUaa.API.Controllers
 
         // GET {{url}}/api/users
         [HttpGet]
-        public async Task<ActionResult<List<MemberDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
         {
-            var users = await _userRepository.GetMembersAsync();
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            userParams.CurrentUsername = User.GetUsername();
+
+            if (string.IsNullOrEmpty(userParams.Gender))
+                userParams.Gender = user.Gender == "female" ? "male" : "female";
+
+            var users = await _userRepository.GetMembersAsync(userParams);
+
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
 
             return Ok(users);
         }
@@ -123,7 +131,7 @@ namespace DatingAppUaa.API.Controllers
 
             if (photo.IsMain) return BadRequest("You cannot delete your main photo");
 
-            if(photo.PublicId != null)
+            if (photo.PublicId != null)
             {
                 var result = await _photoService.DeletePhotoAsync(photo.PublicId);
 

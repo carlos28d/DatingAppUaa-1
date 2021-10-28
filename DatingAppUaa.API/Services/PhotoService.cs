@@ -4,7 +4,6 @@ using DatingAppUaa.API.Helpers;
 using DatingAppUaa.API.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using System;
 using System.Threading.Tasks;
 
 namespace DatingAppUaa.API.Services
@@ -29,11 +28,11 @@ namespace DatingAppUaa.API.Services
         {
             var uploadResult = new ImageUploadResult();
 
-            if(file.Length > 0)
+            if (file.Length > 0)
             {
                 using var stream = file.OpenReadStream();
                 var uploadParams = new ImageUploadParams
-                { 
+                {
                     File = new FileDescription(file.FileName, stream),
                     Transformation = new Transformation()
                                             .Height(500)
