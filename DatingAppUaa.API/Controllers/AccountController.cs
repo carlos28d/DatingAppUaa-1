@@ -1,6 +1,6 @@
-﻿using DatingApp.API.Entities;
-using DatingAppUaa.API.Data;
+﻿using DatingAppUaa.API.Data;
 using DatingAppUaa.API.DTOs;
+using DatingAppUaa.API.Entities;
 using DatingAppUaa.API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

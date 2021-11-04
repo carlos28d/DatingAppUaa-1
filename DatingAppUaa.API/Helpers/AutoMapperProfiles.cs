@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using DatingApp.API.Entities;
 using DatingAppUaa.API.DTOs;
+using DatingAppUaa.API.Entities;
 using DatingAppUaa.API.Extensions;
 using System.Linq;
 

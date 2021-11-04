@@ -1,4 +1,4 @@
-﻿using DatingApp.API.Entities;
+﻿using DatingAppUaa.API.Entities;
 
 namespace DatingAppUaa.API.Interfaces
 {

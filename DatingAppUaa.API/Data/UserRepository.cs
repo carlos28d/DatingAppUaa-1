@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using DatingApp.API.Entities;
 using DatingAppUaa.API.DTOs;
+using DatingAppUaa.API.Entities;
 using DatingAppUaa.API.Helpers;
 using DatingAppUaa.API.Interfaces;
 using Microsoft.EntityFrameworkCore;

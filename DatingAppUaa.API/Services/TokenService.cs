@@ -1,4 +1,4 @@
-﻿using DatingApp.API.Entities;
+﻿using DatingAppUaa.API.Entities;
 using DatingAppUaa.API.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

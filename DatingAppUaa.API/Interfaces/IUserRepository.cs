@@ -1,5 +1,5 @@
-﻿using DatingApp.API.Entities;
-using DatingAppUaa.API.DTOs;
+﻿using DatingAppUaa.API.DTOs;
+using DatingAppUaa.API.Entities;
 using DatingAppUaa.API.Helpers;
 using System.Collections.Generic;
 using System.Threading.Tasks;

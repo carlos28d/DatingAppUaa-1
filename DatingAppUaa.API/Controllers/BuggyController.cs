@@ -1,5 +1,5 @@
-﻿using DatingApp.API.Entities;
-using DatingAppUaa.API.Data;
+﻿using DatingAppUaa.API.Data;
+using DatingAppUaa.API.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
