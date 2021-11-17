@@ -1,9 +1,10 @@
 ﻿using DatingAppUaa.API.Entities;
+using System.Threading.Tasks;
 
 namespace DatingAppUaa.API.Interfaces
 {
     public interface ITokenService
     {
-        string CreateToken(AppUser user);
+        Task<string> CreateToken(AppUser user);
     }
 }
