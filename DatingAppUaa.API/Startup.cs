@@ -24,6 +24,7 @@ namespace DatingAppUaa.API
             services.AddApplicationServices(_config);
             services.AddControllers();
             services.AddIdentityServices(_config);
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +40,8 @@ namespace DatingAppUaa.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthentication();
 
